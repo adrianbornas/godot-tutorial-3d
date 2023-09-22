@@ -1,11 +1,21 @@
-[gd_scene load_steps=2 format=3 uid="uid://dfybn44wdxbh"]
+[gd_scene load_steps=3 format=3 uid="uid://dfybn44wdxbh"]
 
 [ext_resource type="PackedScene" uid="uid://clbiqal43o0eo" path="res://ground.tscn" id="1_d518p"]
+[ext_resource type="PackedScene" uid="uid://cuooxo5pmfhg8" path="res://player.tscn" id="2_a4lff"]
 
 [node name="Main" type="Node"]
 
 [node name="Ground" parent="." instance=ExtResource("1_d518p")]
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+[node name="DirectionalLight" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -0.103418, 0.994638, 0, -0.994638, -0.103418, 0, 18.4149, 0)
 shadow_enabled = true
+
+[node name="Player" parent="." instance=ExtResource("2_a4lff")]
+
+[node name="CameraPivot" type="Marker3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.707107, 0.707107, 0, -0.707107, 0.707107, 0, 19, 19)
+
+[node name="Camera" type="Camera3D" parent="CameraPivot"]
+projection = 1
+size = 19.0
